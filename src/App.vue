@@ -18,6 +18,20 @@
 </template>
 
 <style>
+#ucp-warn {
+  background-color: #fff0a8;
+  border-radius: 5px;
+  color: #4c4c4c;
+  padding: 5px 7px;
+}
+
+#ucp-error {
+  margin: 10px 0;
+  background-color: #ff9090;
+  border-radius: 5px;
+  color: #4c4c4c;
+  padding: 5px 7px;
+}
 </style>
 
 <script>

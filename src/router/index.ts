@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
-import CharApplication from '@/views/CharApplication.vue';
+import NewCharApplication from '@/views/NewCharApplication.vue';
 import CharDetails from '@/views/CharDetails.vue';
+import CharApplicationDetails from '@/views/CharApplicationDetails.vue';
 import { useCookies } from 'vue3-cookies';
-import axios from 'axios';
+import { smfClient } from '@/client/smfClient';
+import { gameClient } from '@/client/gameClient';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -16,8 +18,17 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/karakter-basvurusu',
-    name: 'CharApplication',
-    component: CharApplication,
+    name: 'NewCharApplication',
+    component: NewCharApplication,
+    beforeEnter: () => {
+      checkIsUserLoggedIn();
+      checkIsUserHaveCharApp();
+    }
+  },
+  {
+    path: '/karakter-basvurusu/:name',
+    name: 'CharApplicationDetails',
+    component: CharApplicationDetails,
     beforeEnter: () => {
       checkIsUserLoggedIn();
     }
@@ -32,21 +43,38 @@ const routes: Array<RouteRecordRaw> = [
   }
 ]
 
-function checkIsUserLoggedIn() {
+async function checkIsUserLoggedIn() {
   const { cookies } = useCookies();
   const token = cookies.get("auth_token");
 
   if (!token) {
-    return window.location.href = 'http://localhost/fuchsia21/auth.php';
+    return sendToAuthPage();
   }
 
-  axios.post('http://localhost:3000/auth/validate-token', {
-    token: token
-  }).then(res => {
-    if (!res.data) {
-      return window.location.href = 'http://localhost/fuchsia21/auth.php';
-    }
-  });
+  const [, error] = await smfClient.validateToken(token);
+
+  if (error) {
+    // console.log(error);
+  }
+}
+
+async function checkIsUserHaveCharApp() {
+  const { cookies } = useCookies();
+  const token = cookies.get("auth_token");
+
+  if (!token) {
+    return sendToAuthPage();
+  }
+
+  const [response,] = await gameClient.checkIsUserHaveCharApp(token);
+
+  if (response && response.data.name.length > 0) {
+    return router.push('/karakter-basvurusu/' + response.data.name);
+  }
+}
+
+function sendToAuthPage() {
+  window.location.href = process.env.VUE_APP_AUTH_URL;
 }
 
 const router = createRouter({
