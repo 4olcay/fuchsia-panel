@@ -1,17 +1,125 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+
+  <link rel="stylesheet" href="http://localhost/fuchsia21/Themes/fuchsia/css/index.css?smf21rc4_1642186019">
+  <link rel="stylesheet"
+    href="http://localhost/fuchsia21/Themes/default/css/jquery.custom-scrollbar.css?smf21rc4_1642186019">
+  <link rel="stylesheet" href="http://localhost/fuchsia21/Themes/fuchsia/css/responsive.css?smf21rc4_1642186019">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    img.avatar {
+      max-width: 135px !important;
+      max-height: 135px !important;
+    }
+  </style>
+  <script>
+    var smf_theme_url = "http://localhost/fuchsia21/Themes/fuchsia";
+    var smf_default_theme_url = "http://localhost/fuchsia21/Themes/default";
+    var smf_images_url = "http://localhost/fuchsia21/Themes/fuchsia/images";
+    var smf_smileys_url = "http://localhost/fuchsia21/Smileys";
+    var smf_smiley_sets = "fugue,alienine";
+    var smf_smiley_sets_default = "fugue";
+    var smf_scripturl = "http://localhost/fuchsia21/index.php";
+    var smf_iso_case_folding = false;
+    var smf_charset = "UTF-8";
+    var smf_session_id = "77b42c136326eb98a5695855de63045b";
+    var smf_session_var = "ea7939101";
+    var smf_member_id = 1;
+    var ajax_notification_text = 'Yükleniyor...';
+    var help_popup_heading_text = 'Kayboldunuz? Açıklamayım:';
+    var banned_text = 'Üzgünüz wiggy, bu forum\'dan yasaklandınız!.';
+    var smf_txt_expand = 'Genişlet';
+    var smf_txt_shrink = 'Küçült';
+    var smf_quote_expand = false;
+    var allow_xhjr_credentials = false;
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?smf21rc4_1642186019"></script>
+  <script src="http://localhost/fuchsia21/Themes/default/scripts/smf_jquery_plugins.js?smf21rc4_1642186019"></script>
+  <script
+    src="http://localhost/fuchsia21/Themes/default/scripts/jquery.custom-scrollbar.js?smf21rc4_1642186019"></script>
+  <script src="http://localhost/fuchsia21/Themes/default/scripts/script.js?smf21rc4_1642186019"></script>
+  <script src="http://localhost/fuchsia21/Themes/fuchsia/scripts/theme.js?smf21rc4_1642186019"></script>
+  <script src="http://localhost/fuchsia21/Themes/default/scripts/alerts.js?smf21rc4_1642186019"></script>
+  <script>
+    function smfAutoTask() {
+      $.get(smf_scripturl + "?scheduled=task;ts=1642550400");
+    }
+    window.setTimeout("smfAutoTask();", 1);
+    var new_alert_title = "Fuchsia Roleplay";
+    var alert_timeout = 10000;
+    var smf_you_sure = 'Bunu yapmak istediğinize emin misiniz?';
+  </script>
+  <script>
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gemunu+Libre:300,400,400i,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,600,700,800,900" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:site_name" content="Fuchsia Roleplay">
+  <meta property="og:title" content="Fuchsia Roleplay - Anasayfa">
+  <meta property="og:url" content="http://localhost/fuchsia21/index.php">
+  <meta property="og:description" content="Fuchsia Roleplay - Anasayfa">
+  <meta name="description" content="Fuchsia Roleplay - Anasayfa">
+  <meta name="theme-color" content="#557EA0">
+  <link rel="canonical" href="http://localhost/fuchsia21/index.php">
+  <link rel="help" href="http://localhost/fuchsia21/index.php?action=help">
+  <link rel="contents" href="http://localhost/fuchsia21/index.php">
+  <link rel="search" href="http://localhost/fuchsia21/index.php?action=search">
+  <link rel="alternate" type="application/rss+xml" title="Fuchsia Roleplay - RSS"
+    href="http://localhost/fuchsia21/index.php?action=.xml;type=rss2">
+  <link rel="alternate" type="application/atom+xml" title="Fuchsia Roleplay - Atom"
+    href="http://localhost/fuchsia21/index.php?action=.xml;type=atom">
+</head>
+
+<body id="chrome" class="action_home">
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="footerfix">
     <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+  </div>
+  <div id="footer">
+    <a id="bot"></a>
+    <div class="inner_wrap">
+      <ul>
+        <li class="floatright">
+          <a href="http://localhost/fuchsia21/index.php?action=help">Yardım</a> | <a
+            href="http://localhost/fuchsia21/index.php?action=agreement">Şartlar ve Kurallar</a> | <a
+            href="#top_section">Yukarı git &#9650;</a>
+        </li>
+        <li class="copyright"><a href="http://localhost/fuchsia21/index.php?action=credits" title="Lisans"
+            target="_blank" rel="noopener">SMF 2.1 RC4 &copy; 2021</a>, <a href="https://www.simplemachines.org"
+            title="Simple Machines" target="_blank" rel="noopener">Simple Machines</a></li>
+      </ul>
+    </div>
+  </div><!-- #footer -->
+  <!-- built files will be auto injected -->
+</body>
+
 </html>
