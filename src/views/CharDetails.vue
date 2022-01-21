@@ -173,11 +173,16 @@ export default {
     const route = useRoute();
 
     await axios
-      .get("http://localhost:3010/character/detail?name=" + route.params.name, {
-        headers: {
-          token: cookies.get("auth_token"),
-        },
-      })
+      .get(
+        process.env.VUE_APP_GAME_API +
+          "/character/detail?name=" +
+          route.params.name,
+        {
+          headers: {
+            token: cookies.get("auth_token"),
+          },
+        }
+      )
       .then((res) => {
         this.character = res.data;
         this.isLoading = false;

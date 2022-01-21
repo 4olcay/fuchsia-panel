@@ -97,13 +97,12 @@ export default {
   },
   mounted: async function () {
     await axios
-      .post("http://localhost:3010/character/list", {
+      .post(process.env.VUE_APP_GAME_API + "/character/list", {
         accountId: 0,
         token: cookies.get("auth_token"),
       })
       .then((res) => {
         this.characterList = res.data;
-        console.log(this.characterList);
         this.isLoading = false;
       })
       .catch((error) => {
